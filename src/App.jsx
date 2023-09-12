@@ -1,17 +1,18 @@
-import Header from './components/common/Header'
-import Products from './components/layouts/product/Products'
-import Footer from './components/common/Footer'
-import './App.css' 
+import Header from "./components/common/Header";
+import Products from "./components/layouts/product/Products";
+import Footer from "./components/common/Footer";
+import "./App.css";
 
 function App() {
-
   return (
     <>
-      <Header/>
-      <Products/>
-      <Footer/>
+      <Header />
+      <div className="mt-7 pt-10">
+        <Products />
+      </div>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
