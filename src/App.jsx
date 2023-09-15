@@ -1,18 +1,9 @@
-import Header from "./components/common/Header";
-import Products from "./components/layouts/product/Products";
-import Footer from "./components/common/Footer";
+import { RouterProvider } from "react-router-dom";
 import "./App.css";
+import router from "./components/router";
 
 function App() {
-  return (
-    <>
-      <Header />
-      <div className="mt-7 pt-10">
-        <Products />
-      </div>
-      <Footer />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
