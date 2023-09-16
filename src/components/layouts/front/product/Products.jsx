@@ -1,13 +1,23 @@
 import React from "react";
+import Product from "./Product";
 
-const Products = () => {
+const Products = (props) => {
   return (
-    <div className="mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
-      <p className="text-3xl text-gray-700 font-bold mb-5">Welcome!</p>
-      <p className="text-gray-500 text-lg">
-        React and Tailwind CSS in action on products
-      </p>
-    </div>
+    <section className="py-5">
+      {props?.view == "home" ? (
+        <h4 className="text-center text-3xl tracking-tight font-medium sm:text-5xl text-gray sm:leading-none md:text-3xl mb-4">
+          On Sale Products
+        </h4>
+      ) : (
+        ""
+      )}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+      </div>
+    </section>
   );
 };
 

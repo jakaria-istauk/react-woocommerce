@@ -80,7 +80,7 @@ const Categories = () => {
   return (
     <section className="py-5">
       <h4 className="text-center text-3xl tracking-tight font-medium sm:text-5xl text-gray sm:leading-none md:text-3xl mb-4">
-        Top Categories
+        Shop By Categories
       </h4>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {categories.map((category) => (
