@@ -3,7 +3,7 @@ import FrontLayout from "./layouts/front/frontLayout";
 import Products from "./layouts/front/product/Products";
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./layouts/front/home/Home";
-import Cart from "./layouts/front/Cart";
+import Cart from "./layouts/front/checkout/Cart";
 import Dashboard from "./layouts/front/customer/dashboard";
 import NotFound from "./common/NotFound";
 
