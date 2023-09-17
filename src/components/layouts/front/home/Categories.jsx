@@ -83,8 +83,8 @@ const Categories = () => {
         Shop By Categories
       </h4>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {categories.map((category) => (
-          <Category category={category} />
+        {categories.map((category, index) => (
+          <Category key={index} category={category} />
         ))}
       </div>
     </section>

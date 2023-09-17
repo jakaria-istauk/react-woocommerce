@@ -7,7 +7,7 @@ const FrontLayout = () => {
   return (
     <>
       <Header />
-      <div className="container p-8 m-10 mb-0 pb-1">
+      <div className="container pt-8 m-auto mb-0 mt-8 pb-1">
         <Outlet />
       </div>
       <Footer />
