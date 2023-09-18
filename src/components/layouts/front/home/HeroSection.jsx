@@ -3,7 +3,7 @@ import React from "react";
 const HeroSection = () => {
   return (
     <div
-      className="relative h-screen w-full flex items-center justify-center text-center bg-cover bg-center"
+      className="relative h-80 w-full flex items-center justify-center text-center bg-cover bg-center"
       style={{
         backgroundImage:
           "url(https://img.freepik.com/free-photo/black-friday-elements-assortment_23-2149074076.jpg?w=1800&t=st=1694792000~exp=1694792600~hmac=56259ca1e257860ba5eaf7cc3ff39ea9ef69a830018023b18c84eccd49afd4c6",

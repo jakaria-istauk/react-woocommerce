@@ -1,10 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchProducts } from "../hooks/productApiHandler";
+import { fetchProducts, fetchcategories } from "../hooks/productApiHandler";
 
 export const getProducts = createAsyncThunk(
   "products/fetch",
   async (params) => {
     return await fetchProducts(params).then((data) => {
+      return data;
+    });
+  }
+);
+export const getCategoires = createAsyncThunk(
+  "products/categories/fetch",
+  async (params) => {
+    return await fetchcategories(params).then((data) => {
       return data;
     });
   }
@@ -19,6 +27,11 @@ const productSLice = createSlice({
     page: 1,
     cart: [],
     isLodingMore: false,
+    categories: {
+      data: [],
+      isLoading: false,
+      page: 1,
+    },
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -46,6 +59,16 @@ const productSLice = createSlice({
         if (action.payload.length < action.meta.arg?.per_page) {
           state.page = -1;
         }
+      })
+      .addCase(getCategoires.pending, (state, action) => {
+        state.categories.isLoading = true;
+      })
+      .addCase(getCategoires.rejected, (state, action) => {
+        state.categories.isLoading = false;
+      })
+      .addCase(getCategoires.fulfilled, (state, action) => {
+        state.categories.isLoading = false;
+        state.categories.data = action.payload;
       });
   },
 });

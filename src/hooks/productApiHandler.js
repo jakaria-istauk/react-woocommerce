@@ -16,3 +16,13 @@ export const fetchProducts = async (params) => {
     .catch((error) => {});
   return apiData?.data;
 };
+
+export const fetchcategories = async (params) => {
+  let apiData = await axios
+    .get("/products/categories", { params: { ...params } })
+    .then((res) => {
+      return res;
+    })
+    .catch((error) => {});
+  return apiData?.data;
+};
