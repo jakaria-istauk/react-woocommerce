@@ -5,7 +5,11 @@ const Product = ({ product }) => {
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <Link to={`product/${product?.slug}`}>
-        <img className="rounded-t-lg" src={product?.images?.[0].src} alt="" />
+        <img
+          className="rounded-t-lg h-80 w-full"
+          src={product?.images?.[0].src}
+          alt=""
+        />
       </Link>
       <div className="p-5">
         <Link to={`product/${product?.slug}`}>
@@ -22,6 +26,10 @@ const Product = ({ product }) => {
                 : product?.short_description
               : product?.description.slice(0, 50) + " ...",
           }}
+        ></div>
+        <div
+          className="mb-3 font-normal text-white-700 dark:text-white"
+          dangerouslySetInnerHTML={{ __html: product?.price_html }}
         ></div>
         <div>
           <div className="inline-flex rounded-md shadow-sm " role="group">

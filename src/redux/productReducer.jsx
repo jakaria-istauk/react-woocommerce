@@ -16,19 +16,36 @@ const productSLice = createSlice({
     data: [],
     isLoading: false,
     single: null,
+    page: 1,
+    cart: [],
+    isLodingMore: false,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.pending, (state, action) => {
-        state.isLoading = true;
+        if (action.meta.arg?.page > 1) {
+          state.isLodingMore = true;
+        } else {
+          state.isLoading = true;
+        }
       })
       .addCase(getProducts.rejected, (state, action) => {
         state.isLoading = false;
+        state.isLodingMore = false;
       })
       .addCase(getProducts.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.data = action.payload;
+        state.isLodingMore = false;
+        if (action.meta.arg?.page > 1) {
+          state.page++;
+          state.data = [...state.data, ...action.payload];
+        } else {
+          state.data = action.payload;
+        }
+        if (action.payload.length < action.meta.arg?.per_page) {
+          state.page = -1;
+        }
       });
   },
 });
