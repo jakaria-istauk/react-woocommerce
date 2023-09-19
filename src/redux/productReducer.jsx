@@ -58,6 +58,8 @@ const productSLice = createSlice({
         }
         if (action.payload.length < action.meta.arg?.per_page) {
           state.page = -1;
+        } else {
+          state.page = action.meta.arg?.per_pag ?? 1;
         }
       })
       .addCase(getCategoires.pending, (state, action) => {
