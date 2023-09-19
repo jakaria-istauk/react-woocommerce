@@ -5,26 +5,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../../../redux/productReducer";
 import { Link } from "react-router-dom";
 import { useCallback } from "react";
+import { useParams } from "react-router-dom";
 
 const Products = (props) => {
   const dispatch = useDispatch();
+  const params = useParams();
   const products = useSelector((state) => {
     return state.products;
   });
-  const params = { per_page: 12 };
+  const args = { per_page: 12 };
 
   if (props?.view == "home") {
-    params["on_sale"] = true;
-    params.per_page = 8;
+    args["on_sale"] = true;
+    args.per_page = 8;
+  }
+
+  if (params?.category) {
+    args.category = params.category;
   }
 
   const loadMore = useCallback((e) => {
-    params.page = products.page + 1;
-    dispatch(getProducts(params));
+    args.page = products.page + 1;
+    dispatch(getProducts(args));
   });
 
   useEffect(() => {
-    dispatch(getProducts(params));
+    dispatch(getProducts(args));
   }, [dispatch]);
   return (
     <section className="py-5">

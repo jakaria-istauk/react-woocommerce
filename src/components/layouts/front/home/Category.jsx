@@ -6,7 +6,7 @@ const Category = ({ category }) => {
     "https://placehold.co/800?text=Category+Image&font=merienda";
   return (
     <div>
-      <Link to={`/category/${category?.slug}`}>
+      <Link to={`/category/${category?.id}/${category?.slug}`}>
         <figure className=" bg-white rounded-lg drop-shadow-lg">
           <img
             className="h-40 w-full object-cover rounded-tl-lg rounded-tr-lg"

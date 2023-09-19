@@ -23,6 +23,10 @@ const routes = [
         element: <Products />,
       },
       {
+        path: "/category/:category/:cat_slug",
+        element: <Products />,
+      },
+      {
         path: "/cart",
         element: <Cart />,
       },
