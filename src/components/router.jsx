@@ -6,6 +6,7 @@ import Home from "./layouts/front/home/Home";
 import Cart from "./layouts/front/checkout/Cart";
 import Dashboard from "./layouts/front/customer/dashboard";
 import NotFound from "./common/NotFound";
+import SingleProduct from "./layouts/front/product/SingleProduct";
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
       {
         path: "/category/:category/:cat_slug",
         element: <Products />,
+      },
+      {
+        path: "/product/:slug",
+        element: <SingleProduct />,
       },
       {
         path: "/cart",

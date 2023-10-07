@@ -9,6 +9,7 @@ export const getProducts = createAsyncThunk(
     });
   }
 );
+
 export const getCategoires = createAsyncThunk(
   "products/categories/fetch",
   async (params) => {
@@ -50,7 +51,9 @@ const productSLice = createSlice({
       .addCase(getProducts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isLodingMore = false;
-        if (action.meta.arg?.page > 1) {
+        if (action.meta.arg?.slug) {
+          state.single = action.payload?.[0];
+        } else if (action.meta.arg?.page > 1) {
           state.page++;
           state.data = [...state.data, ...action.payload];
         } else {

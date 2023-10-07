@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.single-product {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-2 mt-10 mb-10;
+}
